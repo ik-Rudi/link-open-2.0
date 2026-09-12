@@ -138,10 +138,13 @@ async def handle_link(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
                 return
 
         # Step 3: No file — send the final link
+        steps = result.get("steps", 1)
         await status_msg.edit_text(
             f"✅ *Link resolved!*\n\n"
-            f"🔗 Final URL:\n`{final_url}`\n\n"
-            f"🔧 Method: {method}",
+            f"🔗 *Final URL:*\n{final_url}\n\n"
+            f"🔧 Method: {method}\n"
+            f"📊 Steps: {steps} page(s) bypassed\n\n"
+            f"_এই link-এ কোনো downloadable file পাওয়া যায়নি।_",
             parse_mode=ParseMode.MARKDOWN
         )
 
