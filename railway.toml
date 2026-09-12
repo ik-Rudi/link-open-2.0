@@ -1,0 +1,9 @@
+# Railway deployment config — Dockerfile ব্যবহার করবে
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "python main.py"
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
